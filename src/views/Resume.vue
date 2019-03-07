@@ -2,12 +2,13 @@
   <div class="resume">
       <div class="container-fluid" id="resumeheader">
             <div class="row">
-                <div class="col-3" id="brandcol">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="../assets/media/nayaca-white-logo.png" alt="Nayaca" id="brandimage">
-                    </a>
+                <div class="col-6" id="brandcol">
+
+                    <router-link to="/" class="navbar-brand">
+                      <img src="../assets/media/nayaca-white-logo.png" alt="Nayaca" id="brandimage">
+                    </router-link>
                 </div>
-                <div class="col-3 offset-6" id="SignUpCol">
+                <div class="col-6" id="SignUpCol">
                       <b-button type="button" class="btn" size="sm" id="signupbutton" href="#"><span>Sign Up</span></b-button>
                 </div>
                 <div class="col-12" id="progresscol">
@@ -66,64 +67,51 @@
             <div class="form-group">
 
               <b-button href="#" v-b-toggle.accordion5 class="btn btn-sm btn-block" variant="outline-dark" id="btnexperience">EXPERIENCE</b-button>
+
               <b-collapse id="accordion5" accordion="my-accordion" role="tabpanel">
-              <div id="experience_box1">
-                <br>
+              <div class="experience-box" id="urch">
                 <input type="text" value="position" class="form-control" placeholder="Position" v-model="position1">
                 <br>
                 <input type="text" value="company" class="form-control" placeholder="Company" v-model="company1">
                 <br>
                 <input type="text" value="location" class="form-control" placeholder="Location" v-model="location1">
                 <br>
-                <input type="text" value="start" class="form-control" placeholder="Start MM.YYYY" v-model="startdate1">
+                <input type="date" value="start" class="form-control" placeholder="Start MM.YYYY" v-model="startdate1">
                 <br>
-                <input type="text" value="end" class="form-control" placeholder="End MM.YYYY" v-model="enddate1">
+                <input type="date" value="end" class="form-control" placeholder="End MM.YYYY" v-model="enddate1">
                 <br>
                 <b-button class="btn btn-sm btn-block" :pressed.sync="btnpressed1" variant="outline-secondary" @click="iworkhere1">I currently work here</b-button>
                 <br>
                 <textarea type="text" value="tasks" class="form-control" rows="3" placeholder="My tasks" v-model="tasks1"></textarea>
               </div>
 
-              <hr class="hr">
-              <b-button class="btn btn-sm btn-block" variant="outline-danger">Add experience</b-button>
-
-              <new-experience></new-experience>
-
-              <hr class="hr">
-
-              <div id="experience_box2">
-
-                <input type="text" value="position" class="form-control" placeholder="Position" v-model="position2">
-                <br>
-                <input type="text" value="company" class="form-control" placeholder="Company" v-model="company2">
-                <br>
-                <input type="text" value="location" class="form-control" placeholder="Location" v-model="location2">
-                <br>
-                <input type="text" value="start" class="form-control" placeholder="Start MM.YYYY" v-model="startdate2">
-                <br>
-                <input type="text" value="end" class="form-control" placeholder="End MM.YYYY" v-model="enddate2">
-                <br>
-                <b-button class="btn btn-sm btn-block" :pressed.sync="btnpressed2" variant="outline-success" @click="iworkhere2">I currently work here</b-button>
-                <br>
-                <textarea type="text" value="tasks" class="form-control" rows="3" placeholder="My tasks" v-model="tasks2"></textarea>
+              <div id="shalalalala">
+                <h6>{{ position1 }}</h6>
+                <h6>{{ company1 }}</h6>
               </div>
-              <hr class="hr">
-              <div id="experience_box3">
 
-                <input type="text" value="position" class="form-control" placeholder="Position" v-model="position3">
-                <br>
-                <input type="text" value="company" class="form-control" placeholder="Company" v-model="company3">
-                <br>
-                <input type="text" value="location" class="form-control" placeholder="Location" v-model="location3">
-                <br>
-                <input type="text" value="start" class="form-control" placeholder="Start MM.YYYY" v-model="startdate3">
-                <br>
-                <input type="text" value="end" class="form-control" placeholder="End MM.YYYY" v-model="enddate3">
-                <br>
-                <b-button class="btn btn-sm btn-block" :pressed.sync="btnpressed3" variant="outline-success" @click="iworkhere3">I currently work here</b-button>
-                <br>
-                <textarea type="text" value="tasks" class="form-control" rows="3" placeholder="My tasks" v-model="tasks3"></textarea>
+              <div>
+                  <b-button-group class="btn btn-sm btn-block" id="doublebutton">
+                    <b-button variant="outline-success" @click="experience_done">OK</b-button>
+                    <b-button variant="outline-dark" @click="add_experience">Add experience</b-button>
+                  </b-button-group>
+                </div>
+
+              <div>
+                <new-experience
+                  v-for="experience in this.experiences"
+                  :key="experience.id"
+                  data="experience"
+                  v-on:remove_experience="remove_experience(experience.id);"
+                ></new-experience>
               </div>
+
+              <hr class="hr">
+
+
+
+
+
             </b-collapse>
             </div>
 
@@ -353,75 +341,10 @@
                 </div>
                 <br>
 
-                <added-experience></added-experience>
 
-                <div id="experience2">
-                  <div class="position">
-                    <h6>{{ position2 }}</h6>
-                  </div>
 
-                  <div>
-                    <span class="inliner">
-                      <img src="../assets/media/icons/company_black.png" height="19px" v-if="company2">
-                      <h6>&nbsp;{{ company2 }}</h6>
-                    </span>
-                  </div>
-
-                  <div>
-                    <span class="inliner">
-                      <img src="../assets/media/icons/location_black.png" height="19px" v-if="location2">
-                      <h6>&nbsp;{{ location2 }}</h6>
-                    </span>
-                  </div>
-
-                  <div>
-                    <span class="inliner">
-                      <img src="../assets/media/icons/calendar_black.png" height="19px" v-if="startdate2 || enddate2 || noend2">
-                      <h6>&nbsp;{{ period2 }}</h6>
-                    </span>
-                  </div>
-
-                  <div>
-                    <span class="inliner">
-                      <img src="../assets/media/icons/tasks_black.png" height="19px" v-if="tasks2">
-                      <h6>&nbsp;{{ tasks2 }}</h6>
-                    </span>
-                  </div>
-                </div>
                 <br>
-                <div id="experience3">
-                  <div class="position">
-                    <h6>{{ position3 }}</h6>
-                  </div>
 
-                  <div>
-                    <span class="inliner">
-                      <img src="../assets/media/icons/company_black.png" height="19px" v-if="company3">
-                      <h6>&nbsp;{{ company3 }}</h6>
-                    </span>
-                  </div>
-
-                  <div>
-                    <span class="inliner">
-                      <img src="../assets/media/icons/location_black.png" height="19px" v-if="location3">
-                      <h6>&nbsp;{{ location3 }}</h6>
-                    </span>
-                  </div>
-
-                  <div>
-                    <span class="inliner">
-                      <img src="../assets/media/icons/calendar_black.png" height="19px" v-if="startdate3 || enddate3 || noend3">
-                      <h6>&nbsp;{{ period3 }}</h6>
-                    </span>
-                  </div>
-
-                  <div>
-                    <span class="inliner">
-                      <img src="../assets/media/icons/tasks_black.png" height="19px" v-if="tasks3">
-                      <h6>&nbsp;{{ tasks3 }}</h6>
-                    </span>
-                  </div>
-                </div>
                 <br>
               </div>
 
@@ -565,6 +488,7 @@
 
 <script>
     import TheFooter from '../components/TheFooter';
+    import NewExperience from '../components/NewExperience';
     //Progress bar dependencies
     import VueFocus from 'vue-focus';
     import $ from 'jquery';
@@ -577,6 +501,7 @@ export default {
   name: 'resume',
   components: {
       'the-footer': TheFooter,
+      'new-experience':  NewExperience
   },
   data() {
     return {
@@ -604,13 +529,16 @@ export default {
       enddate1: '',
       noend1: false,
       tasks1: '',
-      position2: '',
-      company2: '',
-      location2: '',
-      startdate2: '',
-      enddate2: '',
-      noend2: false,
-      tasks2: '',
+      current_index: 0,
+      experiences: [],
+      exp_id: 0,
+      position: '',
+      company: '',
+      location: '',
+      startdate: '',
+      enddate: '',
+      noend: false,
+      tasks: '',
       position3: '',
       company3: '',
       location3: '',
@@ -848,15 +776,42 @@ export default {
 
   },
 
-    resetResume: function() {
+    resetResume() {
       this.full_name = '',
       this.current_position = '',
       this.current_company = '',
       this.current_location = '',
       this.about_me = ''
-     }
-    }
+    },
+    add_experience() {
+      this.exp_id++;
+      this.experiences.push({
+        id: this.exp_id
+      });
+    },
+    remove_experience(id) {
+      for (var i = this.experiences.length; i--; ) {
+        if (this.experiences[i].id !== id) continue;
+        this.experiences.splice(i, 1);
+        return;
+      }
+    },
+    experience_done() {
+      $('#urch').hide();
+     $('#shalalalala').show();
+   },
+  }
 }
+
+
+
+window.addEventListener("scroll", function() {
+    if (pageYOffset > 100) {
+      $(".navbar-brand").hide();
+    } else {
+      $(".nayaca-text").show();
+}
+});
 
 </script>
 

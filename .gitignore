@@ -1,0 +1,15 @@
+
+# An example .gitignore file
+# You can use * to indicate any string of characters
+# Git will ignore any files or directories that match the list below, when you run the git add . command.
+
+*.log
+*.pyc
+*.swp
+*.*swp
+/credentials
+/venv
+*/.DS_Store
+ignorethisfile.*
+
+node_modules/

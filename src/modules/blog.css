@@ -1,0 +1,200 @@
+.blog {
+  color: white;
+}
+
+.jumbotron {
+    border-radius: 0;
+    position: relative;
+    padding-bottom: 0;
+}
+
+#blog {
+  max-width: 100%;
+  min-height: 800px;
+  background-image: url("https://cdn.glitch.com/89557d53-bdf9-42eb-adfc-ed86e46978c4%2Frobert-bye-319816-unsplash%20(1).jpg?1545734215201");
+  background-size: cover;
+  background-position: 0% 15%;
+  display: block;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+#blogheadline {
+  text-align: center;
+  text-shadow: 1px 1px black;
+  margin: 0;
+  padding: 0;
+}
+
+#blogheadline .xss-screen {
+  word-spacing: 0.1em;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+  display: block;
+}
+
+#blogheadline .xs-screen, #blogheadline .sm-screen, #blogheadline .md-screen, #blogheadline .lg-screen, #blogheadline .xl-screen,
+#blogheadline .xxl-screen, #blogheadline .xxxl-screen, #blogheadline .xxxxl-screen {
+  word-spacing: 0.25em;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  display: none;
+}
+
+#blogsubheads {
+  margin: 1em 0 0 0;
+  padding: 0;
+  text-align: center;
+  text-shadow: 1px 1px black;
+}
+
+#blogsubheads .xs-screen {
+  word-spacing: 0.1em;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+  display: block;
+}
+
+#blogsubheads .xl-screen {
+  word-spacing: 0.25em;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  display: none;
+}
+
+p {
+  text-align: justify;
+}
+
+
+
+
+@media (orientation: landscape) {
+
+  #headline {
+    margin: 20% 0 0 0;
+    padding: 0;
+  }
+  #subheads {
+    display: none;
+  }
+}
+
+@media (min-width: 375px) {
+  #headline .xxs-screen {
+    display: none;
+  }
+  #headline .xs-screen {
+    display: block;
+  }
+}
+
+@media (min-width: 420px) {
+
+  #headline .xs-screen {
+    display: none;
+  }
+  #headline .sm-screen {
+    display: block;
+  }
+}
+
+@media (min-width: 500px) {
+  #headline .sm-screen {
+    display: none;
+  }
+  #headline .md-screen {
+    display: block;
+  }
+}
+
+@media (min-width: 600px) {
+
+  #headline .md-screen {
+    display: none;
+  }
+  #headline .lg-screen {
+    display: block;
+  }
+}
+
+@media (min-width: 812px) {
+  #headline .lg-screen {
+    display: none;
+  }
+  #headline .xl-screen {
+    display: block;
+  }
+  #subheads .xs-screen {
+    display: none;
+  }
+  #subheads .xl-screen {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  #headline .xl-screen {
+    display: none;
+  }
+  #headline .xxl-screen {
+    display: block;
+  }
+}
+
+@media (min-width: 1240px) {
+  #headline .xxl-screen {
+    display: none;
+  }
+  #headline .xxxl-screen {
+    display: block;
+  }
+}
+
+@media (min-width: 1350px) {
+  #main {
+    background-image: url("../assets/media/NYC1.jpg");
+    height: 100vh;
+  }
+
+  #headline .xxxl-screen {
+    display: none;
+  }
+  #headline .xxxxl-screen {
+    display: block;
+  }
+}
+
+#blogheadline {
+  padding-top: 400px;
+  text-align: center;
+  text-shadow: 2px 2px black;
+}
+
+.blogbox {
+  padding: 20px;
+  border: 3px solid black;
+  border-radius: 10px;
+  margin: 20px;
+  color: black;
+}
+
+.latestblogbox {
+  padding: 20px;
+  border: 3px solid black;
+  border-radius: 10px;
+  margin: 20px;
+  color: black;
+  background-color: white;
+}
+
+.blogbox h6, .latestblogbox h6 {
+  color: #FF6F61;
+  text-align: right;
+}
+
+.flex-item {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,330 @@
+/* @import '404.css'; */
+
+/* NEWLY INTRODUCED BUTTON BTN-PANTONE and BTN-OUTLINE-PANTONE!!! */
+#gotoresumebuttonsm:hover {
+  color: #FF6F61;
+  background-color: #fff;
+  border-color: #FF6F61;
+  text-decoration: none; }
+#gotoresumebuttonsm:focus, #gotoresumebuttonsm.focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 111, 97, 0.5); }
+#gotoresumebuttonsm.disabled, #gotoresumebuttonsm:disabled {
+  color: #fff;
+  background-color: #FF6F61;
+  border-color: #FF6F61; }
+#gotoresumebuttonsm:not(:disabled):not(.disabled):active, #gotoresumebuttonsm:not(:disabled):not(.disabled).active,
+.show > #gotoresumebuttonsm.dropdown-toggle {
+  color: #fff;
+  background-color: #FF6F61;
+  border-color: #FF6F61; }
+#gotoresumebuttonsm:not(:disabled):not(.disabled):active:focus, #gotoresumebuttonsm:not(:disabled):not(.disabled).active:focus,
+.show > #gotoresumebuttonsm.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 111, 97, 0.5); }
+
+.home {
+  color: white;
+}
+
+.jumbotron {
+    border-radius: 0;
+    position: relative;
+    padding-bottom: 0;
+}
+
+#main {
+  max-width: 100%;
+  min-height: calc(100vh - 21.172px);
+  background-image: url("../assets/media/NYC2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: block;
+  margin-bottom: auto;
+  text-align: center;
+}
+
+
+
+
+
+
+#headline {
+  text-align: center;
+  text-shadow: 1px 1px black;
+  margin: 0;
+  padding: 0;
+}
+
+#headline .xss-screen {
+  word-spacing: 0.1em;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+  display: block;
+}
+
+#headline .xs-screen, #headline .sm-screen, #headline .md-screen, #headline .lg-screen, #headline .xl-screen,
+#headline .xxl-screen, #headline .xxxl-screen, #headline .xxxxl-screen {
+  word-spacing: 0.25em;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  display: none;
+}
+
+#subheads {
+  margin: 1em 0 0 0;
+  padding: 0;
+  text-align: center;
+  text-shadow: 1px 1px black;
+}
+
+#subheads .xs-screen {
+  word-spacing: 0.1em;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+  display: block;
+}
+
+#subheads .xl-screen {
+  word-spacing: 0.25em;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  display: none;
+}
+
+#subheadslandscape .small-landscape, #subheadslandscape .large-landscape {
+  text-align: center;
+  word-spacing: 0.25em;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  display: none;
+}
+
+#gotoresume {
+  letter-spacing: 0.1em;
+  word-spacing: 0.25em;
+  font-weight: bold;
+  color: white;
+  margin: 2em 0 0 0;
+  padding: 0;
+}
+
+#gotoresumebuttonsm {
+  display: inline;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#gotoresumebuttonlg {
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#ragazza {
+  filter: grayscale(100%);
+  width: 100%;
+  max-width: 100%;
+  min-height: calc(100vh - 21.969px);
+  background-image: url('../assets/media/ragazza.jpg');
+  background-size: cover;
+  background-repeat: repeat;
+  display: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  /* background-position: relative; */
+  text-align: center;
+  color: red;
+  font-weight: bold;
+}
+
+#ragazzabox {
+  filter: grayscale(100%);
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 10px;
+  color: red;
+  text-shadow: 1px 1px white;
+  font-weight: bold;
+}
+
+#message {
+  text-align: center;
+}
+
+@media (orientation: portrait) {
+  #message {
+    margin: 13em auto auto auto;
+    padding: 0;
+  }
+}
+
+@media (orientation: landscape) {
+  #main {
+    width: 100%;
+    background-image: url("../assets/media/NYC1.jpg");
+    background-position: 0% 29%;
+  }
+  #headline {
+    margin: 20% 0 0 0;
+    padding: 0;
+  }
+  #subheads {
+    display: none;
+  }
+  #subheadslandscape .small-landscape {
+    display: block;
+  }
+  #gotoresume {
+
+   /* padding: auto; */
+  text-align: center;
+}
+}
+
+@media (min-width: 360px) and (orientation: portrait) {
+  #message {
+    margin: 15em auto auto auto;
+    padding: 0;
+  }
+}
+
+@media (min-width: 375px) {
+  #headline .xxs-screen {
+    display: none;
+  }
+  #headline .xs-screen {
+    display: block;
+  }
+}
+
+@media (min-width: 375px) and (orientation: portrait) {
+  #message {margin: 20em auto auto auto;
+  }
+}
+
+@media (min-width: 414px) and (orientation: portrait) {
+  #message {margin: 20em auto auto auto;
+  }
+}
+
+@media (min-width: 420px) {
+
+  #headline .xs-screen {
+    display: none;
+  }
+  #headline .sm-screen {
+    display: block;
+  }
+}
+
+@media (min-width: 500px) {
+  #headline .sm-screen {
+    display: none;
+  }
+  #headline .md-screen {
+    display: block;
+  }
+}
+
+@media (min-width: 600px) {
+
+  #headline .md-screen {
+    display: none;
+  }
+  #headline .lg-screen {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) and (orientation: portrait) {
+  #message {margin: 30em auto auto auto;
+  }
+}
+
+@media (min-width: 812px) {
+  #headline .lg-screen {
+    display: none;
+  }
+  #headline .xl-screen {
+    display: block;
+  }
+  #subheads .xs-screen {
+    display: none;
+  }
+  #subheads .xl-screen {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+
+
+  #headline .xl-screen {
+    display: none;
+  }
+  #headline .xxl-screen {
+    display: block;
+  }
+
+  #gotoresumebuttonsm {
+    display: none;
+  }
+  #gotoresumebuttonlg {
+    display: inline;
+  }
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  #subheadslandscape .small-landscape {
+    display: none;
+  }
+  #subheadslandscape .large-landscape {
+    display: block;
+  }
+  #gotoresume {
+    margin-top: 3em;
+    text-align: center;
+  }
+}
+
+@media (min-width: 1024px) and (orientation: portrait) {
+  #message {margin: 40em auto auto auto;
+  }
+}
+
+@media (min-width: 1240px) {
+  #headline .xxl-screen {
+    display: none;
+  }
+  #headline .xxxl-screen {
+    display: block;
+  }
+}
+
+@media (min-width: 1350px) {
+  #main {
+    background-image: url("../assets/media/NYC1.jpg");
+    height: 100vh;
+  }
+
+  #headline .xxxl-screen {
+    display: none;
+  }
+  #headline .xxxxl-screen {
+    display: block;
+  }
+  #gotoresumebuttonsm {
+    display: none;
+  }
+  #gotoresumebuttonlg {
+    display: inline;
+  }
+
+  #ragazza {
+    display: inline-block;
+  }
+}
+
+/* What is this for? */
+.ghost {
+  visibility: hidden;
+}

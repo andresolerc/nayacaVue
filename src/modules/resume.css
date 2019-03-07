@@ -25,12 +25,16 @@
       background: linear-gradient(90deg, #0f52ba, #fff);
       padding: 10px;
       height: 70px;
-      position: relative;
+      position: fixed;
       z-index: 10;
     }
 
 .navbar-brand {
   padding-top: 0;
+}
+
+.nayaca-text {
+  display: none;
 }
 
 #progresscol {
@@ -54,9 +58,10 @@
   }
 
 #SignUpCol {
-  padding-left: 30px;
-  padding-right: 10px;
+  text-align: right;
+  padding-right: 100px;
   margin-top: 2px;
+  display: none;
 }
 
 #signupbutton {
@@ -73,7 +78,23 @@
   line-height: 1.5;
 }
 
+#urch {
+  visibility: visible;
+}
 
+#shalalalala {
+  box-shadow: 0 0 0.1px #292A2D;
+  border-radius: 3px;
+  color: #292A2D;
+  display: none;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+#doublebutton {
+  padding: 0;
+  margin: 0;
+}
 /* Resume preview area */
 
 #resumepage {
@@ -147,6 +168,15 @@
   text-align: center;
 }
 
+.experience-box {
+  border: 1px solid #292A2D;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  list-style: none;
+  width: 100%;
+}
+
 #experience_headline, #education_headline {
   text-align: center;
   color: #FF6F61;
@@ -208,10 +238,7 @@ h4 {
 }
 
 @media only screen and (max-width: 768px) {
-  #signupbutton {
-    margin-top: 15px;
-    margin-left: -11px;
-  }
+
   #resumebuilder {
     padding-top: 0px;
   }
@@ -234,13 +261,24 @@ h4 {
 
 @media (min-width: 768px) and (orientation: portrait) {
   #resumebuilder {
-    padding-top: 20px;
-    margin-top: 20px;
+    padding-top: 40px;
   }
 }
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  #resumeheader {
+    height: 90px;
+  }
+}
+
+@media (min-width: 1350px) and (orientation: landscape) {
+  #resumeheader {
+    height: 120px;
+  }
+}
+
 @media (min-width: 1200px) and (orientation: portrait) {
   #resumebuilder {
-    margin-top: 70px;
-    padding-top: 100px;
+    padding-top: 170px;
   }
 }

@@ -37,7 +37,6 @@ export default {
   font-size: 0.75em;
   text-align: left;
 
-
 }
 #navlink_1:hover, #navlink_2:hover {
   color: #FF6F61;
@@ -76,9 +75,6 @@ export default {
   .nav-item a {
     padding-top: 28px;
   }
-  #navlink_1, #navlink_2 {
-    margin-top: 18px;
-  }
 }
 
 @media (min-width: 1024px) {
@@ -89,7 +85,6 @@ export default {
   }
   #navlink_1, #navlink_2 {
     font-size: 1em;
-    margin-top: 26px;
   }
   .navbar-expand-sm .nav-item a {
     padding-top: 36px;
@@ -104,7 +99,6 @@ export default {
   }
   #navlink_1, #navlink_2 {
     font-size: 1.25em;
-    margin-top: 35px;
   }
   .navbar-expand-sm .nav-item a {
     padding-top: 43px;

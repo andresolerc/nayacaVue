@@ -1,11 +1,11 @@
 .blog {
   color: white;
-}
+  }
 
 .jumbotron {
-    border-radius: 0;
-    position: relative;
-    padding-bottom: 0;
+  border-radius: 0;
+  position: relative;
+  padding-bottom: 0;
 }
 
 #blog {

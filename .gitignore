@@ -1,15 +1,21 @@
+.DS_Store
+node_modules
+/dist
 
-# An example .gitignore file
-# You can use * to indicate any string of characters
-# Git will ignore any files or directories that match the list below, when you run the git add . command.
+# local env files
+.env.local
+.env.*.local
 
-*.log
-*.pyc
-*.swp
-*.*swp
-/credentials
-/venv
-*/.DS_Store
-ignorethisfile.*
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-node_modules/
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*

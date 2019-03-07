@@ -20,6 +20,7 @@
 export default {
   name: 'TheFooter',
   components: {
+
   }
 }
 </script>
@@ -28,11 +29,11 @@ export default {
 
 #footer {
   background-color: black;
-  color: white;
   text-align: center;
   font-size: 10px;
   padding: 3px;
   margin: 0;
+  color: white;
 }
 
 #footer a {

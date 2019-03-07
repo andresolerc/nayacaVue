@@ -501,7 +501,9 @@ export default {
   name: 'resume',
   components: {
       'the-footer': TheFooter,
-      'new-experience':  NewExperience
+      'new-experience':  NewExperience, // eslint-disable-next-line
+      VueFocus, // eslint-disable-next-line
+      html2canvas
   },
   data() {
     return {

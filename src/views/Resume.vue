@@ -1,6 +1,6 @@
 <template>
   <div class="resume">
-      <div class="container-fluid color-nav " id="resumeheader">
+      <div class="container-fluid color-nav nav " id="resumeheader">
             <div class="row">
                 <div class="col-6" id="brandcol">
                     <router-link to="/" class="navbar-brand">

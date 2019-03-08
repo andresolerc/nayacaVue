@@ -1,11 +1,10 @@
 <template>
   <div class="resume">
-      <div class="container-fluid" id="resumeheader">
+      <div class="container-fluid color-nav " id="resumeheader">
             <div class="row">
                 <div class="col-6" id="brandcol">
-
                     <router-link to="/" class="navbar-brand">
-                      <img src="../assets/media/nayaca-white-logo.png" alt="Nayaca" id="brandimage">
+                        <img src="../assets/media/nayaca-white-logo.png" alt="Nayaca" id="brandimage">
                     </router-link>
                 </div>
                 <div class="col-6" id="SignUpCol">
@@ -806,14 +805,29 @@ export default {
 }
 
 
-
+/*
 window.addEventListener("scroll", function() {
     if (pageYOffset > 100) {
       $(".navbar-brand").hide();
     } else {
       $(".nayaca-text").show();
 }
+}); */
+
+$(function () {
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $('.navbar-brand img').attr('src','../assets/media/nayaca-text.png');
+            $(".color-nav").addClass("navbar-inverse");
+            document.getElementById("#resumeheader").style.backgroundColor="black";
+        }
+        if ($(this).scrollTop() < 100) {
+            $('.navbar-brand img').attr('src','../assets/media/nayaca-white-logo.png');
+        }
+    })
 });
+
+
 
 </script>
 

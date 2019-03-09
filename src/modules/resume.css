@@ -24,19 +24,19 @@
 #resumeheader {
       background: linear-gradient(90deg, #0f52ba, #fff);
       padding: 10px;
-      height: 70px;
+      height: 50px;
       position: fixed;
       z-index: 10;
     }
 
 .navbar-brand {
-  padding-top: 0;
+  margin-top: -20px;
 }
 
-.navbar-text {
-  
+#brandimage {
+  width: 40px;
+  height: 40px;
 }
-
 
 #progresscol {
   padding-left: 0;
@@ -47,7 +47,7 @@
     padding: 0;
     left: 0;
     right: 0;
-    height: 5px;
+    height: 3px;
     font-size: 0.5em;
     font-weight: bold;
   }
@@ -241,7 +241,7 @@ h4 {
 @media only screen and (max-width: 768px) {
 
   #resumebuilder {
-    padding-top: 0px;
+    padding-top: 25px;
   }
 }
 
@@ -264,17 +264,52 @@ h4 {
   #resumebuilder {
     padding-top: 40px;
   }
+  #resumeheader {
+    height: 70px;
+  }
+  #brandimage {
+    width: 50px;
+    height: 50px;
+    margin-top: 17px;
+  }
+}
+
+@media (min-width: 1024px) and (orientation: portrait) {
+  #resumeheader {
+    height: 90px;
+  }
+  #brandimage {
+    width: 70px;
+    height: 70px;
+    margin-top: 20px;
+  }
+  #resumebuilder {
+    padding-top: 100px;
+  }
 }
 
 @media (min-width: 1024px) and (orientation: landscape) {
   #resumeheader {
-    height: 90px;
+    height: 60px;
+  }
+  #brandimage {
+    width: 40px;
+    height: 40px;
+    margin-top: 20px;
   }
 }
 
 @media (min-width: 1350px) and (orientation: landscape) {
   #resumeheader {
-    height: 120px;
+    height: 70px;
+  }
+  #brandimage {
+    width: 60px;
+    height: 60px;
+    margin-top: 10px;
+  }
+  #resumebuilder {
+    padding-top: 80px;
   }
 }
 

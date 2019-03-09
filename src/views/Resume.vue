@@ -1,6 +1,6 @@
 <template>
   <div class="resume">
-      <div class="container-fluid color-nav nav " id="resumeheader">
+      <div class="container-fluid color-nav" id="resumeheader">
             <div class="row">
                 <div class="col-6" id="brandcol">
                     <router-link to="/" class="navbar-brand">
@@ -813,20 +813,24 @@ window.addEventListener("scroll", function() {
       $(".nayaca-text").show();
 }
 }); */
-
+/*
+This function works but it's made with jQuery, Vue: https://vuejs.org/v2/cookbook/creating-custom-scroll-directives.html
 $(function () {
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
-            $('.navbar-brand img').attr('src','../assets/media/nayaca-text.png');
-            $(".color-nav").addClass("navbar-inverse");
-            document.getElementById("#resumeheader").style.backgroundColor="black";
+            $('#brandimage').attr('src','../assets/media/usa.png');
+            $('#brandimage').attr('width','75px');
+            $('#brandimage').attr('height','30px');
+            $("#resumeheader").css('background',"black");
+            $("#resumeheader").css('height',"30px");
+            $("#progresscol").css('margin-top',"-20px");
         }
         if ($(this).scrollTop() < 100) {
-            $('.navbar-brand img').attr('src','../assets/media/nayaca-white-logo.png');
+            $('#brandimage').attr('src','../assets/media/nayaca-white-logo.png');
         }
     })
 });
-
+*/
 
 
 </script>

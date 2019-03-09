@@ -53,7 +53,6 @@ export default {
 }
 
 
-
 .navbar-brand img {
   width: 50px;
   height: 50px;
@@ -66,28 +65,13 @@ export default {
   outline: none;
 }
 
-.nav-item img {
-  color: #FF6F61 !important;
-  padding-right: 10px;
-}
-
-@media (min-width: 576px) {
-  .nav-item a {
-    padding-top: 28px;
-  }
-}
-
 @media (min-width: 1024px) {
-
   .navbar-brand img {
     width: 75px;
     height: 75px;
   }
   #navlink_1, #navlink_2 {
     font-size: 1em;
-  }
-  .navbar-expand-sm .nav-item a {
-    padding-top: 36px;
   }
 }
 
@@ -99,9 +83,8 @@ export default {
   }
   #navlink_1, #navlink_2 {
     font-size: 1.25em;
-  }
-  .navbar-expand-sm .nav-item a {
-    padding-top: 43px;
+    margin-top: 30px;
   }
 }
+
 </style>

@@ -79,11 +79,11 @@
   line-height: 1.5;
 }
 
-#urch {
+#experience-long {
   visibility: visible;
 }
 
-#shalalalala {
+#experience(experience.id) {
   box-shadow: 0 0 0.1px #292A2D;
   border-radius: 3px;
   color: #292A2D;
@@ -92,13 +92,26 @@
   padding: 10px;
 }
 
+#experience-short {
+  box-shadow: 0 0 0.1px #292A2D;
+  border-radius: 3px;
+  color: #292A2D;
+  display: none;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.right {
+  float: right;
+}
+
 #doublebutton {
   padding: 0;
   margin: 0;
 }
 /* Resume preview area */
 
-#resumepage {
+#resumeview {
   letter-spacing: 0.1em;
   word-spacing: 0.25em;
   box-shadow: 0 0 0.1cm;
@@ -132,7 +145,7 @@
   font-size: 12px;
   }
 
-#resumepage h4 {
+#resumeview h4 {
   font-size: 1.25em;
   color: #FF6F61;
   font-weight: bold;
@@ -140,13 +153,13 @@
   margin-bottom: 1em;
 }
 
-#resumepage h6 {
+#resumeview h6 {
   font-size: 1em;
   font-weight: bold;
   margin-bottom: 0.5em;
 }
 
-#resumepage img {
+#resumeview img {
   height: 12px;
   width: 12px;
 }
@@ -250,7 +263,7 @@ h4 {
 	body {
     visibility: hidden;
     }
-    #resumepage {
+    #resumeview {
     visibility: visible;
     position: fixed;
     top: 0px;

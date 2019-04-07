@@ -42,8 +42,8 @@
                               <b-form-textarea type="text" id="about_me" rows="3" placeholder="About me" v-model="about_me" ></b-form-textarea><br>
                               <b-form-input type="text" id="salary" placeholder="My salary expectations" v-model="salary" ></b-form-input>
                               </b-collapse>
-                       </b-form-group>
-                       <b-form-group id="contact_box">
+                        </b-form-group>
+                        <b-form-group id="contact_box">
                               <b-button href="#" v-b-toggle.accordion3 class="btn btn-sm btn-block" variant="outline-dark" id="btncontact" >CONTACT</b-button>
                               <b-collapse id="accordion3" accordion="my-accordion" role="tabpanel"><br>
                               <b-form-input type="text" id="email"  placeholder="My email" v-model="email" class="onProgressbar" @focus="checkCompleted"></b-form-input><br>
@@ -53,13 +53,13 @@
                               <b-form-input type="text" id="address"  placeholder="My address" v-model="address"></b-form-input><br>
                               <b-form-input type="text" id="video" placeholder="My application video" v-model="video"></b-form-input>
                               </b-collapse>
-                      </b-form-group>
-                      <b-form-group id="application_box">
+                        </b-form-group>
+                        <b-form-group id="application_box">
                               <b-button href="#" v-b-toggle.accordion4 class="btn btn-sm btn-block" variant="outline-dark" id="btnapplication">APPLICATION</b-button>
                               <b-collapse id="accordion4" accordion="my-accordion" role="tabpanel"><br>
                               <b-form-input type="text" id="desired_position" placeholder="Desired position" v-model="desired_position" class="onProgressbar" @focus="checkCompleted"></b-form-input>
                               </b-collapse>
-                      </b-form-group>
+                        </b-form-group>
 
 
 
@@ -84,7 +84,12 @@
                 <textarea type="text" value="tasks" class="form-control" rows="3" placeholder="My tasks" v-model="tasks1"></textarea>
               </div>
 
-              <div id="shalalalala">
+              <div id="experience-short">
+                <div class="inliner right">
+                  <div @click="edit"><img src="../assets/media/icons/edit.png" height="12px"></div>
+                  &nbsp;&nbsp;&nbsp;
+                  <div @click="trash"><img src="../assets/media/icons/trash.png" height="12px"></div>
+                </div>
                 <h6>{{ position1 }}</h6>
                 <h6>{{ company1 }}</h6>
               </div>
@@ -97,12 +102,13 @@
                 </div>
 
               <div>
-                <new-experience
+                <experience-input
                   v-for="experience in this.experiences"
                   :key="experience.id"
                   data="experience"
-                  v-on:remove_experience="remove_experience(experience.id);"
-                ></new-experience>
+                  :experience="experience"
+                  v-on:remove_experience="remove_experience(experiences.id);"
+                ></experience-input>
               </div>
 
               <hr class="hr">
@@ -177,7 +183,8 @@
 
 
       <div class="col-md-8">
-        <div id="resumepage">
+        <div id="resumeview">
+        <div id="resumeviewAbout">
           <div id="full_nameview">
             <h4>{{ full_name }}</h4>
           </div>
@@ -208,7 +215,8 @@
             <h6>&nbsp;&nbsp;&nbsp;{{ degree }}</h6>
           </span>
           </div>
-
+        </div>
+        <div id="resumeviewSkills">
           <div>
           <span class="inliner">
             <img src="../assets/media/icons/languages.png" height="19px" v-if="languages">
@@ -244,6 +252,9 @@
           </span>
           </div>
 
+
+        </div>
+        <div id="resumeviewContact">
           <div>
           <span class="inliner" id="emailview">
             <img src="../assets/media/icons/email.png" height="19px" v-if="email">
@@ -285,7 +296,9 @@
             <h6>&nbsp;&nbsp;&nbsp;{{ video }}</h6>
           </span>
           </div>
+        </div>
 
+        <!-- What's this for? -->
           <span v-if="email"><hr></span>
 
           <div id="WHYME">
@@ -295,6 +308,7 @@
           </span>
           </div>
 
+          <!-- What's this for? -->
           <span v-if="desired_position"><hr></span>
 
             <div class="row">
@@ -339,6 +353,17 @@
                   </div>
                 </div>
                 <br>
+
+                <div>
+
+                  <experience-output
+                    v-for="experience in this.experiences"
+                    :key="experience.id"
+                    data="experience"
+                    :experience="experience"
+                  ></experience-output>
+
+                </div>
 
 
 
@@ -463,6 +488,7 @@
           </div>
           </div>
         </div>
+
         <hr>
         <div class="row">
           <div class="col signupResume">
@@ -487,7 +513,8 @@
 
 <script>
     import TheFooter from '../components/TheFooter';
-    import NewExperience from '../components/NewExperience';
+    import ExpIn from '../components/experience-input';
+    import ExpOut from '../components/experience-output';
     //Progress bar dependencies
     import VueFocus from 'vue-focus';
     import $ from 'jquery';
@@ -499,103 +526,79 @@
 export default {
   name: 'resume',
   components: {
-      'the-footer': TheFooter,
-      'new-experience':  NewExperience, // eslint-disable-next-line
+      'the-footer': TheFooter,  // eslint-disable-next-line
+      'experience-input':  ExpIn, // eslint-disable-next-line
+      'experience-output':  ExpOut, // eslint-disable-next-line
       VueFocus, // eslint-disable-next-line
       html2canvas
   },
+  props: [
+
+  ],
   data() {
     return {
-      full_name: '',
+      full_name: '', //About section starts
       current_position: '',
       current_company: '',
       current_location: '',
-      about_me: '',
-      accomplishment: '',
-      coding: '',
       degree: '',
-      languages: '',
+      languages: '', //Skills section starts
+      coding: '',
+      accomplishment: '',
+      about_me: '',
       salary: '',
-      email: '',
+      email: '', //Contact section starts
       phone: '',
       website: '',
       linkedIn: '',
       address: '',
       video: '',
-      desired_position: '',
-      position1: '',
+      desired_position: '', //Application section
+      position1: '', //Experience section starts
       company1: '',
       location1: '',
       startdate1: '',
       enddate1: '',
+      btnpressed1: false, //belongs to iworkhere()
       noend1: false,
       tasks1: '',
-      current_index: 0,
+
       experiences: [],
       exp_id: 0,
-      position: '',
-      company: '',
-      location: '',
-      startdate: '',
-      enddate: '',
-      noend: false,
-      tasks: '',
-      position3: '',
-      company3: '',
-      location3: '',
-      startdate3: '',
-      enddate3: '',
-      noend3: false,
-      tasks3: '',
-      study_s1: '',
+
+      study_s1: '', //Education section starts
       institution_s1: '',
       location_s1: '',
       startdate_s1: '',
       enddate_s1: '',
+      btnpressed_s1: false,
       noend_s1: false,
       achievements_s1: '',
-      study_s2: '',
+      study_s2: '', //Education section 2 starts
       institution_s2: '',
       location_s2: '',
       startdate_s2: '',
       enddate_s2: '',
+      btnpressed_s2: false,
       noend_s2: false,
       achievements_s2: '',
-      study_s3: '',
+      study_s3: '', //Education section 3 starts
       institution_s3: '',
       location_s3: '',
       startdate_s3: '',
       enddate_s3: '',
+      btnpressed_s3: false,
       noend_s3: false,
       achievements_s3: '',
-      btnpressed1: false,
-      btnpressed2: false,
-      btnpressed3: false,
-      btnpressed_s1: false,
-      btnpressed_s2: false,
-      btnpressed_s3: false,
-      //progress bar key-value pairs
-      maxbar: 100,
-      valuebar: 0
 
+      maxbar: 100, //progress bar key-value pairs
+      valuebar: 0,
 }
   },
 
   computed: {
-/*    currently: function() {
-  if (this.current_position && this.current_company && this.current_location) {
-    return this.current_position + ' | ' + this.current_company + ' | ' + this.current_location;
-  } else if (this.current_position && this.current_company) {
-    return this.current_position + ' | ' + this.current_company;
-  } else if (this.current_position && this.current_location) {
-    return this.current_position + ' | ' + this.current_location;
-  } else if (this.current_company && this.current_location) {
-    return this.current_company + ' | ' + this.current_location;
-  } else {
-    return this.current_position || this.current_company || this.current_location;
-  }
-},*/
-    period1() {
+
+    period1() { //Belongs to Date period for Experience
       if (this.startdate1 && this.enddate1 && this.noend1) {
         return 'since ' + this.startdate1;
       } else if (this.startdate1 && this.enddate1) {
@@ -609,46 +612,6 @@ export default {
       } else if (this.enddate1) {
         return 'until ' + this.enddate1;
       } else if (this.noend1) {
-        return 'I currently work here.';
-      } else {
-        return null;
-      }
-    },
-
-    period2() {
-      if (this.startdate2 && this.enddate2 && this.noend2) {
-        return 'since ' + this.startdate2;
-      } else if (this.startdate2 && this.enddate2) {
-        return this.startdate2 + ' - ' + this.enddate2;
-      } else if (this.startdate2 && this.noend2) {
-        return 'since ' + this.startdate2;
-      } else if (this.enddate2 && this.noend2) {
-        return null;
-      } else if (this.startdate2) {
-        return 'since ' + this.startdate2;
-      } else if (this.enddate2) {
-        return 'until ' + this.enddate2;
-      } else if (this.noend2) {
-        return 'I currently work here.';
-      } else {
-        return null;
-      }
-    },
-
-    period3() {
-      if (this.startdate3 && this.enddate3 && this.noend3) {
-        return 'since ' + this.startdate3;
-      } else if (this.startdate3 && this.enddate3) {
-        return this.startdate3 + ' - ' + this.enddate3;
-      } else if (this.startdate3 && this.noend3) {
-        return 'since ' + this.startdate3;
-      } else if (this.enddate3 && this.noend3) {
-        return null;
-      } else if (this.startdate3) {
-        return 'since ' + this.startdate3;
-      } else if (this.enddate3) {
-        return 'until ' + this.enddate3;
-      } else if (this.noend3) {
         return 'I currently work here.';
       } else {
         return null;
@@ -720,12 +683,6 @@ export default {
     iworkhere1() {
       this.noend1 = !this.noend1;
     },
-    iworkhere2() {
-      this.noend2 = !this.noend2;
-    },
-    iworkhere3() {
-      this.noend3 = !this.noend3;
-    },
     istudyhere1() {
       this.noend_s1 = !this.noend_s1;
     },
@@ -735,38 +692,51 @@ export default {
     istudyhere3() {
       this.noend_s3 = !this.noend_s3;
     },
-    // Input & Progress Bar Tracking with vue-focus https://github.com/simplesmiler/vue-focus
-    // just had to pull in a vue-focus event other than vue and jQuery
-    checkCompleted: function() {
-      // find all inputs
-      var totalInputs = $('input.onProgressbar').length;
-
-      var filledInputs = 0;
-      $('input.onProgressbar').each(function() {
-        // has a value
-        if ((this.value)) {
-          filledInputs++;
-        }
+    add_experience() {
+      this.exp_id++;
+      this.experiences.push({
+        id: this.exp_id
       });
-
-      // do the math
-      var find = filledInputs / totalInputs * 100;
-
-      // update local variable in Vue data
-      this.valuebar = Math.round(find);
+      this.expout_id++;
+      this.expouts.push({
+        id: this.expout_id
+      });
+      this.expmod_id++;
+      this.expmods.push({
+        huhn: this.expmod_id
+      });
+     },
+     remove_experience(id) {
+       for (var i = this.experiences.length; i--; ) {
+         if (this.experiences[i].id !== id) continue;
+         this.experiences.splice(i, 1);
+         break;
+       }
+       for (var j = this.expouts.length; j--; ) {
+         if (this.expouts[j].id !== id) continue;
+         this.expouts.splice(j, 1);
+         break;
+       }
+     },
+     experience_done() {
+       $('#experience-long').hide();
+       $('#experience-short').show();
+    },
+    edit() {
+       $('#experience-short').hide();
+       $('#experience-long').show();
+    },
+    trash() {
+      $('#experience-short').remove();
+      $('#experience-long').remove();
+      $('#experience1').remove();
     },
 
-  ready: function() {
-    // check for any existing values on page load, set accordingly
-    this.checkCompleted();
-  },
+    //Create PDF button: New jsPDF working and to be improved
+    exportPdf() {
+      const doc = new jsPDF("p", "pt", "a4", true);
 
-
-  //New jsPDF working and to be improved
-  exportPdf() {
-    const doc = new jsPDF("p", "pt", "a4", true);
-
-    doc.fromHTML($('#resumepage')[0], 15, 15, {
+      doc.fromHTML($('#resumeview')[0], 15, 15, {
               'width': 1000,
           },
               function () {
@@ -775,8 +745,8 @@ export default {
               }
           );
 
-  },
-
+      },
+    //Reset Button
     resetResume() {
       this.full_name = '',
       this.current_position = '',
@@ -784,35 +754,30 @@ export default {
       this.current_location = '',
       this.about_me = ''
     },
-    add_experience() {
-      this.exp_id++;
-      this.experiences.push({
-        id: this.exp_id
+    // Input & Progress Bar Tracking with vue-focus https://github.com/simplesmiler/vue-focus
+    // just had to pull in a vue-focus event other than vue and jQuery
+    checkCompleted: function() {
+      // find all inputs
+      var totalInputs = $('input.onProgressbar').length;
+      var filledInputs = 0;
+      $('input.onProgressbar').each(function() {
+        // has a value
+        if ((this.value)) {
+          filledInputs++;
+        }
       });
+      // do the math
+      var find = filledInputs / totalInputs * 100;
+      // update local variable in Vue data
+      this.valuebar = Math.round(find);
     },
-    remove_experience(id) {
-      for (var i = this.experiences.length; i--; ) {
-        if (this.experiences[i].id !== id) continue;
-        this.experiences.splice(i, 1);
-        return;
-      }
+    ready: function() {
+      // check for any existing values on page load, set accordingly
+      this.checkCompleted();
     },
-    experience_done() {
-      $('#urch').hide();
-     $('#shalalalala').show();
-   },
   }
 }
 
-
-/*
-window.addEventListener("scroll", function() {
-    if (pageYOffset > 100) {
-      $(".navbar-brand").hide();
-    } else {
-      $(".nayaca-text").show();
-}
-}); */
 /*
 This function works but it's made with jQuery, Vue: https://vuejs.org/v2/cookbook/creating-custom-scroll-directives.html
 $(function () {
@@ -831,7 +796,6 @@ $(function () {
     })
 });
 */
-
 
 </script>
 
